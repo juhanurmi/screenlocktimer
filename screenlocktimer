@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export DISPLAY=:0.0
+
+H=$(date +%H)
+if (( 1 <= 10#$H && 10#$H < 17 )); then
+    # Between 1AM and 17PM
+    qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock
+fi
