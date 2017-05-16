@@ -1,6 +1,7 @@
 # screenlocktimer
 
-Force locks your screen every 15 minutes.
+Force screen lock every 15 minutes
+----------------------------------
 
 ```sh
 sudo cp screenlocktimer /usr/local/bin/
@@ -13,7 +14,8 @@ crontab -e
 */15 * * * * bash /usr/local/bin/screenlocktimer
 ```
 
-Or with PIN code dialog:
+Every 15 mins asks PIN code or locks the screen
+-----------------------------------------------
 
 Edit screenlocktimer-zenity-bin and set your PIN code.
 
@@ -28,3 +30,9 @@ crontab -e
 # Add this line
 */15 * * * * bash /usr/local/bin/screenlocktimer-zenity-bin
 ```
+
+Juha Nurmi on sanonut:
+
+> Puolustajan isoin etu on, että hän voi valita taistelukentän.
+> Etulyöntiasemalle saa vipuvartta tekemällä paljon yllättäviä puolustusratkaisuja.
+> Näin myös puolustamisesta tulee hakkeroinnin kaltainen mielenkiintoinen taitolaji.
