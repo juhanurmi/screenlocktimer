@@ -1,17 +1,17 @@
 #!/bin/bash
 
-export DISPLAY=:0.0
-
-PASS=$(timeout 10 zenity --entry --title="Password OR kill!" --text="Password OR kill! You have 10 seconds!")
-
-PIN="0000"
-
-if [ "$PASS" -eq "$PIN" ]; then
-   exit;
-fi
+PIN="0000" # Write your PIN code here
 
 H=$(date +%H)
+# Between 1AM and 17PM
 if (( 1 <= 10#$H && 10#$H < 17 )); then
-    # Between 1AM and 17PM
+  export DISPLAY=:0.0 # Crontab needs this
+
+  PASS=$(timeout 10 zenity --entry --title="Password OR kill!" --text="Password OR kill! You have 10 seconds!")
+
+  if [ "$PASS" != "$PIN" ]; then
+    # PIN does not match, lock the screen
+    echo "LOCK"
     qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock
+  fi
 fi
