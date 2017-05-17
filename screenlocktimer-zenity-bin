@@ -1,4 +1,15 @@
 #!/bin/bash
+# Locks screen if user does not input right PIN code
+# Supports KDE
+# Crontab: */15 * * * * bash /usr/local/bin/screenlocktimer-zenity-bin
+
+set -e
+
+# If screen is already locked do nothing
+if [[ $(ps -ef | grep -v grep | grep -c kscreenlocker_greet) -eq 1 ]]; then
+  # kscreenlocker_greet process found!
+  exit 1
+fi
 
 PIN="0000" # Write your PIN code here
 
