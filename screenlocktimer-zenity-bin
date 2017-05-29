@@ -16,7 +16,13 @@ H=$(date +%H)
 if (( 1 <= 10#$H && 10#$H < 17 )); then
   export DISPLAY=:0.0 # Crontab needs this
 
+  # Locate your screen using
+  # xrandr -q | grep " connected"
+  xrandr --output DVI-I-1 --brightness 0.5
+
   PASS=$(timeout 10 zenity --entry --title="Password OR kill!" --text="Password OR kill! You have 10 seconds!")
+
+  xrandr --output DVI-I-1 --brightness 1.0
 
   if [ "$PASS" != "$PIN" ]; then
     # PIN does not match, lock the screen
