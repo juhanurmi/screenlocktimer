@@ -5,39 +5,23 @@ export DISPLAY=:0.0 # Crontab needs this
 
 H=$(date +%H)
 
-# Between 1AM and 3PM, full brightness
-if (( 1 <= 10#$H && 10#$H < 15 )); then
+# Between 4AM and 18PM, full brightness
+if (( 4 <= 10#$H && 10#$H < 18 )); then
   xrandr --output DVI-I-1 --brightness 1.0
 fi
 
-if (( 15 <= 10#$H && 10#$H < 16 )); then
-  xrandr --output DVI-I-1 --brightness 0.9
-fi
-
-if (( 16 <= 10#$H && 10#$H < 17 )); then
+if (( 18 <= 10#$H && 10#$H < 19 )); then
   xrandr --output DVI-I-1 --brightness 0.8
 fi
 
-if (( 17 <= 10#$H && 10#$H < 18 )); then
-  xrandr --output DVI-I-1 --brightness 0.7
-fi
-
-if (( 18 <= 10#$H && 10#$H < 19 )); then
-  xrandr --output DVI-I-1 --brightness 0.6
-fi
-
 if (( 19 <= 10#$H && 10#$H < 20 )); then
-  xrandr --output DVI-I-1 --brightness 0.5
+  xrandr --output DVI-I-1 --brightness 0.6
 fi
 
 if (( 20 <= 10#$H && 10#$H < 21 )); then
   xrandr --output DVI-I-1 --brightness 0.4
 fi
 
-if (( 21 <= 10#$H && 10#$H < 22 )); then
-  xrandr --output DVI-I-1 --brightness 0.3
-fi
-
-if (( 22 <= 10#$H && 10#$H < 1 )); then
+if (( 21 <= 10#$H && 10#$H < 4 )); then
   xrandr --output DVI-I-1 --brightness 0.2
 fi
