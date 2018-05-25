@@ -31,6 +31,18 @@ crontab -e
 */15 * * * * bash /usr/local/bin/screenlocktimer-zenity-bin
 ```
 
+For resolution problmes add to end of ~/.profile and cp xrandr ~/
+-----------------------------------------------------------------
+
+```sh
+if xrandr | fgrep --quiet '1920x1080R    59.93*'; then
+  echo "Screen resolution 1920x1080R OK"
+else
+  echo "Set screen resolution 1920x1080R"
+  bash $HOME/xrandr.sh 120
+fi
+```
+
 Juha Nurmi on sanonut:
 
 > Puolustajan isoin etu on, että hän voi valita taistelukentän.
